@@ -8,7 +8,7 @@ function metadata(req, res) {
 
     const apiUrl = `http://${config.server.address}:${config.server.port}`;
     const data = {
-        jsonRpc: "2.0",
+        jsonrpc: "2.0",
         method: "state_getMetadata",
         params: [],
         id: Math.floor(Math.random() * (max - min + 1)) + min
@@ -19,7 +19,7 @@ function metadata(req, res) {
         },
     };
     axios
-        .post(apiUrl, data, axiosConfig)
+        .post(apiUrl, JSON.stringify(data), axiosConfig)
         .then(response => {
             // console.log(response)
             res.json(response.data)
