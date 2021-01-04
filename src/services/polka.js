@@ -6,7 +6,7 @@ function metadata(req, res) {
     const max = 1000000;
     const min = 1;
 
-    const apiUrl = `http://${config.server}:${config.port}`;
+    const apiUrl = `http://${config.server.address}:${config.server.port}`;
     const data = {
         jsonRpc: "2.0",
         method: "state_getMetadata",
